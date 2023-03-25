@@ -31,6 +31,7 @@ public class FormNAMA extends javax.swing.JFrame {
         save.setText("Simpan");
     }
     
+    //Untuk menampilkan data ke tabel
     private void Show_ALL(){
         try {
             query = conn.createStatement();
@@ -184,12 +185,14 @@ public class FormNAMA extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             query = conn.createStatement();
+            //simpan data
             if(save.getText().equals("Simpan")){
                 String sql = "CALL nama_i('"+ nama_depan.getText() +"', '"+ nama_belakang.getText() +"')";
                 query.executeUpdate(sql);
                 JOptionPane.showMessageDialog(null, "Data berhasil disimpan");
                 Clear();
                 Show_ALL();
+            //edit data
             } else if(save.getText().equals("Edit")) {
                 String sql = "CALL nama_u('"+ id.getText() +"', '"+ nama_depan.getText() +"', '"+ nama_belakang.getText() +"')";
                 query.executeUpdate(sql);
@@ -213,11 +216,13 @@ public class FormNAMA extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        //membersihkan form
         Clear();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        // menghapus data
         if(id.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Pilih data terlebih dahulu");
         } else {
