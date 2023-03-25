@@ -23,6 +23,7 @@ public class FormNAMA extends javax.swing.JFrame {
         Show_ALL();
     }
     
+    //membersihkan form
     private void Clear(){
         id.setText("");
         nama_depan.setText("");
