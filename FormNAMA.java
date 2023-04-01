@@ -53,6 +53,7 @@ public class FormNAMA extends javax.swing.JFrame {
                     result.getString("id"), result.getString("nama_depan"), result.getString("nama_belakang")
                 };
                 model.addRow(data);
+                //show_data adalah nama variabel TableModel, sesuaikan dengan punya kalian 
                 show_data.setModel(model);
             }
         } catch(Exception e){
@@ -66,6 +67,7 @@ public class FormNAMA extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    //jangan di copy ini bang
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
@@ -181,13 +183,15 @@ public class FormNAMA extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //sampai sini
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         // TODO add your handling code here:
         try{
             query = conn.createStatement();
             //simpan data
+            //save adalah nama variabel button, sesuaikan dengan punya anda
             if(save.getText().equals("Simpan")){
+                //nama_depan, nama_belakang adalah nama variabel JTextField
                 String sql = "CALL nama_i('"+ nama_depan.getText() +"', '"+ nama_belakang.getText() +"')";
                 query.executeUpdate(sql);
                 JOptionPane.showMessageDialog(null, "Data berhasil disimpan");
@@ -208,6 +212,7 @@ public class FormNAMA extends javax.swing.JFrame {
 
     private void show_dataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_show_dataMouseClicked
         // TODO add your handling code here:
+        //klik kanan pada tabel -> event -> mouse -> mouse clicked
         id.setText(show_data.getValueAt(show_data.getSelectedRow(), 0).toString());
         nama_depan.setText(show_data.getValueAt(show_data.getSelectedRow(), 1).toString());
         nama_belakang.setText(show_data.getValueAt(show_data.getSelectedRow(), 2).toString());
