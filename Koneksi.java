@@ -14,6 +14,7 @@ public class Koneksi {
     public static Connection DB(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
+            //orang adalah nama database, jadi sesuaikan dengan nama database kalian
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/orang", "root", "");
             return conn;
         } catch(Exception e){
